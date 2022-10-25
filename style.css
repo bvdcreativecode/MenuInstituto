@@ -1,0 +1,231 @@
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg1:#EFF3F5;
+    --c1: #697477;
+    --f1: 'Open Sans', sans-serif;
+}
+
+.nav {
+    width: 100%;
+    height: 90px;
+    padding: 6px 0;
+    font-family: var(--f1);
+    background: var(--bg1);
+    position: fixed;
+    transition: all 300ms;
+}
+
+.nav__ul {
+    max-width: 1182px;
+    width: 100%;
+    height: 78px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav__menu {
+    max-width: 1066px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__items {
+    max-width: 565px;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+.nav__li {
+    position: relative;
+    padding: 4px 8px;
+}
+
+.li__item-menu, .li__item {
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--c1);
+    font-weight: 600;
+}
+
+.li__item-menu {
+    margin-right: 5px;
+    transition: all 200ms;
+}
+
+.fa-angle-down {
+    color: var(--c1);
+    transition: all 200ms;
+}
+
+
+/* MENU PROGRAMAS DE ESTUDIO - POR QUE CAJAS*/
+.nav__programas, .nav__porquecajas {
+    position: absolute;
+    height: auto;
+    top: 30px;
+    padding: 5px 25px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .19);
+    visibility: hidden;
+    opacity: 0;
+}
+
+.nav__programas {width: 350px;}
+.nav__porquecajas {width: 250px;}
+
+.programas, .porquecajas {
+    list-style: none;
+    margin: 15px 0;
+}
+
+.programas > a, .porquecajas > a {
+    margin: 5px 0;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--c1);
+    transition: all 300ms;
+}
+
+.programas > i, .porquecajas > i {
+    font-size: 14px;
+    margin-right: 9px;
+    color: #808080;
+    transition: all 300ms;
+}
+
+.li__programas:hover .nav__programas,
+.li__porque-cajas:hover .nav__porquecajas{visibility: visible; opacity: 1;}
+
+.programas:hover > a,
+.porquecajas:hover > a,
+.programas:hover > i,
+.porquecajas:hover > i {color: #333333;}
+/* ------------------------------------------------*/
+
+.nav__li:hover .li__item-menu,
+.nav__li:hover .fa-angle-down,
+.nav__li:hover .li__item{color: #333333}
+
+
+.nav__search {
+    width: 276px;
+    height: 34px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    background:#fff;
+}
+
+.input__search {
+    width: 100%;
+    height: 34px;
+    padding-left: 15px;
+    font-size: 14px;
+    font-weight: 400;
+    border: none;
+    outline: none;;
+    background: none;
+    color: var(--c1);
+}
+
+.fa-search {
+    padding: 0 15px;
+    color: var(--c1);
+}
+
+.nav__menu .fa-bars {
+    display: none;
+    margin: 0 20px;
+    font-size: 20px;
+    color: var(--c1);
+}
+
+.nav__menu .fa-times {margin: 0 21.85px;}
+
+
+@media screen and (min-width: 950px) {
+    .nav__li:hover .fa-angle-down{transform: rotate(-180deg);}
+}
+
+@media screen and (max-width: 950px) {
+    .nav {height: 70px;}
+    .nav__ul {height: 60px;}
+    .img__logo {width: 60px; margin-left: 20px;}
+    .nav__menu {justify-content: flex-end; position: relative;}
+    .nav__items {
+        position: absolute;
+        top: 64px;
+        background: #161d6f;
+        max-width: 900px;
+        min-width: 350px;
+        height: 0px;
+        padding: 10px;
+        flex-direction: column;
+        justify-content: stretch;
+        align-items: flex-start;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 300ms ease;
+    }
+
+    .items-menu {
+        display: block;
+        height: auto;
+        opacity: 1;
+        visibility: visible;
+        transition: all 300ms ease;
+    }
+    .nav__menu .fa-bars, .nav__menu .fa-times{ display: block;}
+
+
+    /* MENU PROGRAMAS DE ESTUDIO - POR QUE CAJAS */
+    .nav__programas, .nav__porquecajas {
+        position: static;
+        display: none; /* Eventos sub menu*/
+        width: 100%;
+        padding: 10px;
+        background: transparent;
+        box-shadow: none;
+        opacity: 1;
+    }
+    .programas, .porquecajas {margin: 2px 0; padding: 4px 0;}
+    .programas > a , .porquecajas > a{padding: 4px 0;}
+    .nav__programas--display, .nav__porquecajas--display {display: block;}
+
+    .li__programas .nav__programas,
+    .li__porque-cajas .nav__porquecajas{visibility: visible;}
+
+    .programas:hover > a,
+    .porquecajas:hover > a,
+    .programas:hover > i,
+    .porquecajas:hover > i {color: aqua}
+    /*--------------------------*/
+
+    
+    .nav__li .fa-angle-down{transform: rotate(0deg);}
+    .nav__li .icon-rotacion{transform: rotate(-180deg);}
+
+    .nav__li:hover .li__item-menu,
+    .nav__li:hover .fa-angle-down,
+    .nav__li:hover .li__item{color: #fdb827}
+}
+
+@media screen and (max-width: 420px) {
+    .img__logo {margin-left: 10px;}
+    .nav__search {width: 215px;}
+}
